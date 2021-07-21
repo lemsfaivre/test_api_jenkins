@@ -1,15 +1,26 @@
 pipeline {
-  agent { docker { image 'python:3.7.2' } }
-  stages {
-    stage('build') {
-      steps {
-        sh 'pip install -r requirements.txt'
-      }
+    /* Specify node for execution */
+    agent { 
+        docker { image 'python:3.7.2' } 
     }
-    stage('test') {
-      steps {
-        sh 'python test.py'
-      }   
+
+    stages {
+        stage('checkout SCM') {
+            steps {
+                echo ">> Checkout from Github"
+            }
+        }
+    
+        stage('build') {
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('test') {
+            steps {
+                sh 'python test.py'
+            }   
+        }
     }
-  }
 }
