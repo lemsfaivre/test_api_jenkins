@@ -48,6 +48,7 @@ pipeline {
         stage('run tests') {
             steps {
                 runCommandInMyEnvironment('pytest tests --junitxml=reports/result.xml --cov=api')
+                junit "reports/result.xml"
             }   
         }
     }
