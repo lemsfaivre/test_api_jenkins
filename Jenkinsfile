@@ -3,7 +3,7 @@
 // https://betterprogramming.pub/how-too-add-github-webhook-to-a-jenkins-pipeline-62b0be84e006
 
 def runCommandInMyEnvironment(cmd) {
-  sh "setup_environment_command; source ./some/file; ${cmd}"
+  sh "source venv/bin/activate; ${cmd}"
 }
 
 pipeline {
