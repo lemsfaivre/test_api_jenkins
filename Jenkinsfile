@@ -2,6 +2,9 @@
 // https://www.jenkins.io/doc/book/pipeline/docker/
 // https://betterprogramming.pub/how-too-add-github-webhook-to-a-jenkins-pipeline-62b0be84e006
 
+def runCommandInMyEnvironment(cmd) {
+  sh "setup_environment_command; source ./some/file; ${cmd}"
+}
 
 pipeline {
     /* Specify node for execution */
@@ -25,20 +28,18 @@ pipeline {
         stage('Virtual environment') {
             steps {
                 sh 'python3 -m venv venv'
-                sh '. venv/bin/activate'
-                sh 'pip install -r requirements.txt'
             }
         }
     
         stage('build') {
             steps {
-                sh 'pip install -r requirements.txt'
+                runCommandInMyEnvironment('pip install -r requirements.txt')
             }
         }
 
-        stage('test') {
+        stage('install pytest') {
             steps {
-                sh 'python test.py'
+                runCommandInMyEnvironment('python test.py')
             }   
         }
     }
