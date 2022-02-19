@@ -1,4 +1,5 @@
 .venv/
 venv
 .coverage
+reports
 __pycache__/
