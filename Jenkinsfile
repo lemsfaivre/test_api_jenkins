@@ -5,9 +5,7 @@
 
 pipeline {
     /* Specify node for execution */
-    agent { 
-        docker { image 'python:3.8.10' } 
-    }
+    agent any
 
     stages {
         stage('checkout SCM') {
