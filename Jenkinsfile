@@ -46,7 +46,7 @@ pipeline {
       
         stage('run tests') {
             steps {
-                runCommandInMyEnvironment('pytest tests --cov=.')
+                runCommandInMyEnvironment('pytest tests --cov=api')
             }   
         }
     }
