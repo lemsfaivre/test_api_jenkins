@@ -42,5 +42,11 @@ pipeline {
                 runCommandInMyEnvironment('pip install pytest')
             }   
         }
+      
+        stage('run tests') {
+            steps {
+                runCommandInMyEnvironment('pytest test_api.py')
+            }   
+        }
     }
 }
