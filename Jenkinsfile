@@ -21,6 +21,13 @@ pipeline {
                 ])
             }
         }
+        
+        stage('Virtual environment') {
+            steps {
+                sh 'python -m venv venv'
+                sh 'source venv/bin/activate'
+            }
+        }
     
         stage('build') {
             steps {
