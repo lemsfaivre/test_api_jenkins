@@ -39,7 +39,7 @@ pipeline {
 
         stage('install pytest') {
             steps {
-                runCommandInMyEnvironment('python test.py')
+                runCommandInMyEnvironment('pip install pytest')
             }   
         }
     }
