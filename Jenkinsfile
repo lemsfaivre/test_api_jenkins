@@ -1,6 +1,7 @@
 // Examples of groovy Jenkins files
 // https://www.jenkins.io/doc/book/pipeline/docker/
 // https://betterprogramming.pub/how-too-add-github-webhook-to-a-jenkins-pipeline-62b0be84e006
+// https://gist.github.com/jubel-han/0e669dbbfa9e966f0b79a91730edc806
 
 def runCommandInMyEnvironment(cmd) {
   sh ". venv/bin/activate; ${cmd}"
