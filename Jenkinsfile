@@ -24,7 +24,7 @@ pipeline {
         
         stage('Virtual environment') {
             steps {
-                sh 'python -m venv venv'
+                sh 'python3 -m venv venv'
                 sh 'source venv/bin/activate'
             }
         }
