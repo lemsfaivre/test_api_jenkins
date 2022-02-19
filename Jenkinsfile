@@ -40,6 +40,7 @@ pipeline {
         stage('install pytest') {
             steps {
                 runCommandInMyEnvironment('pip install pytest')
+                runCommandInMyEnvironment('pip install pytest-cov')
             }   
         }
       
